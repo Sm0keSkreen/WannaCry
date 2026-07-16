@@ -7,12 +7,15 @@
     "network.MixinConnection"
   ],
   "client": [
+    "entity.IAbstractClientPlayer",
+    "entity.IPlayerInfo",
     "entity.MixinAbstractClientPlayer",
     "entity.MixinClientPlayerEntity",
     "input.IMinecraft",
     "input.MixinKeyboardHandler",
     "input.MixinMinecraft",
     "input.MixinMouseHandler",
+    "input.MixinMultiPlayerGameMode",
     "network.MixinClientPacketListener",
     "render.MixinCameraAccessor",
     "render.MixinCameraSetup",
