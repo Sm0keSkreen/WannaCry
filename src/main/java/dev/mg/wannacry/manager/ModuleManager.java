@@ -15,8 +15,7 @@ import dev.mg.wannacry.features.modules.client.HudEditorModule;
 import dev.mg.wannacry.features.modules.client.NotificationsModule;
 import dev.mg.wannacry.features.modules.combat.AimCorrectionModule;
 import dev.mg.wannacry.features.modules.combat.MaceSpoofModule;
-import dev.mg.wannacry.features.modules.exploit.ElytraSpeedModule;
-import dev.mg.wannacry.features.modules.exploit.WindDelayModule;
+import dev.mg.wannacry.features.modules.exploit.OvertickModule;
 import dev.mg.wannacry.features.modules.exploit.XCarryModule;
 import dev.mg.wannacry.features.modules.player.TotemModule;
 import dev.mg.wannacry.features.modules.combat.TriggerBotModule;
@@ -59,8 +58,7 @@ public class ModuleManager implements Jsonable, Util {
         register(new FullbrightModule());
         register(new NoRenderModule());
 
-        register(new ElytraSpeedModule());
-        register(new WindDelayModule());
+        register(new OvertickModule());
         register(new XCarryModule());
 
         register(new MaceSpoofModule());
