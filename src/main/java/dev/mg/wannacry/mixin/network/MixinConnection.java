@@ -1,0 +1,54 @@
+package dev.mg.wannacry.mixin.network;
+
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
+import dev.mg.wannacry.event.impl.network.PacketEvent;
+import dev.mg.wannacry.util.PacketGuard;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketFlow;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import static dev.mg.wannacry.util.traits.Util.EVENT_BUS;
+
+@Mixin(Connection.class)
+public class MixinConnection {
+
+    @Shadow
+    private Channel channel;
+    @Shadow
+    @Final
+    private PacketFlow receiving;
+
+    @Inject(method = "channelRead0", at = @At("HEAD"), cancellable = true)
+    public void channelRead0(ChannelHandlerContext chc, Packet<?> packet, CallbackInfo ci) {
+        if (this.channel.isOpen() && packet != null) {
+            try {
+                if (EVENT_BUS.post(new PacketEvent.Receive(packet))) {
+                    ci.cancel();
+                }
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
+    @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
+    private void sendPacket(Packet<?> packet, ChannelFutureListener callbacks, boolean flush, CallbackInfo ci) {
+        if (this.receiving != PacketFlow.CLIENTBOUND) return;
+        PacketGuard.begin();
+        try {
+            if (EVENT_BUS.post(new PacketEvent.Send(packet))) {
+                ci.cancel();
+            }
+        } catch (Exception ignored) {
+        } finally {
+            PacketGuard.end();
+        }
+    }
+}

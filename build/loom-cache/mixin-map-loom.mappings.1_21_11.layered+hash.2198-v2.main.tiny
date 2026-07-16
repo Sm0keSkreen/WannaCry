@@ -1,0 +1,15 @@
+v1	named	intermediary
+FIELD	dev/mg/wannacry/mixin/network/MixinConnection	Lio/netty/channel/Channel;	channel	field_11651
+FIELD	dev/mg/wannacry/mixin/network/MixinConnection	Lnet/minecraft/network/protocol/PacketFlow;	receiving	field_11643
+FIELD	dev/mg/wannacry/mixin/render/MixinDeltaTrackerTimer	F	deltaTicks	field_51958
+FIELD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	Lnet/minecraft/client/gui/components/CommandSuggestions$SuggestionsList;	suggestions	field_21612
+FIELD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	Ljava/util/concurrent/CompletableFuture;	pendingSuggestions	field_21611
+FIELD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	Lcom/mojang/brigadier/ParseResults;	currentParse	field_21610
+FIELD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	Z	keepSuggestions	field_21614
+FIELD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	Lnet/minecraft/client/gui/components/EditBox;	input	field_21599
+FIELD	dev/mg/wannacry/mixin/render/MixinLevelRenderer	Lcom/mojang/blaze3d/pipeline/RenderTarget;	entityOutlineTarget	field_53080
+FIELD	dev/mg/wannacry/mixin/render/MixinLevelRenderer	Lnet/minecraft/client/renderer/LevelTargetBundle;	targets	field_53081
+FIELD	dev/mg/wannacry/mixin/render/MixinChatComponent	Ljava/util/List;	allMessages	field_2061
+METHOD	dev/mg/wannacry/mixin/render/gui/MixinCommandSuggestions	()V	updateUsageInfo	method_23937
+METHOD	dev/mg/wannacry/mixin/render/MixinCameraSetup	(FF)V	setRotation	method_19325
+METHOD	dev/mg/wannacry/mixin/render/MixinChatComponent	()V	refreshTrimmedMessages	method_44813

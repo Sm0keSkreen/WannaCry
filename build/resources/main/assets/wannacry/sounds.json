@@ -1,0 +1,10 @@
+{
+  "ui_click": {
+    "sounds": [
+      {
+        "name": "satellite:ui_click",
+        "stream": false
+      }
+    ]
+  }
+}

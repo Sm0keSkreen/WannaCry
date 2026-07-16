@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "wannacry",
+  "version": "${version}",
+  "name": "WannaCry",
+  "description": "z",
+  "authors": [
+    "952mg"
+  ],
+  "contact": {
+    "repo": "https://"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "accessWidener": "wannacry.accesswidener",
+  "entrypoints": {
+    "client": [
+      "dev.mg.wannacry.WannaCry"
+    ],
+    "main": [
+      "dev.mg.wannacry.WannaCry"
+    ]
+  },
+  "mixins": [
+    "wannacry.mixins.json",
+    "wannacry.viewmodel.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
